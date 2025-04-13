@@ -1,10 +1,10 @@
-import { printHello } from './lib/hello.js';
+import httpServer from './config/http';
+import './config/env.js';
 
-printHello();
+const runServer = () => {
+    httpServer.listen(process.env.PORT, () => {
+        console.log(`Server running in port ${process.env.PORT}`);
+    });
+};
 
-console.log('Helloo');
-const number1 = 10;
-const number2 = 8;
-
-if (number1 <= number2) console.log('IS a ONE!!!');
-else console.log("It's fine boy");
+runServer();

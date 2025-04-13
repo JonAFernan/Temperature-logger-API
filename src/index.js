@@ -1,5 +1,5 @@
-import httpServer from './config/http';
 import './config/env.js';
+import httpServer from './config/http.js';
 
 const runServer = () => {
     httpServer.listen(process.env.PORT, () => {

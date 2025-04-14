@@ -13,5 +13,4 @@ The **Temperature logger API Project** is designed to facilitate communication b
 To enhance the development experience and provide a solid structure, several essential tools have been integrated:
 
 - 🔍 [ESLint](https://eslint.org/) - Statically analyzes code to quickly find problems.
-- 📏 [Standard.js](https://standardjs.com/) - A configuration template for ESLint.
 - 🎨 [Prettier](https://prettier.io/) - Opinionated code formatter to maintain consistency.

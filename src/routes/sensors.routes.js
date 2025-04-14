@@ -2,19 +2,19 @@ import { Router } from 'express';
 
 const sensorRouter = Router();
 
-sensorRouter.get('/sensors/:id', (req, res) =>
+sensorRouter.get('/:id', (req, res) =>
     res.json({ message: 'Handler pendiente' }),
 );
-sensorRouter.get('/sensors', (req, res) =>
+sensorRouter.get('/all', (req, res) =>
     res.json({ message: 'Handler pendiente' }),
 );
-sensorRouter.post('/sensors', (req, res) =>
+sensorRouter.post('/add', (req, res) =>
     res.json({ message: 'Handler pendiente' }),
 );
-sensorRouter.patch('/sensors/:id', (req, res) =>
+sensorRouter.patch('/:id', (req, res) =>
     res.json({ message: 'Handler pendiente' }),
 );
-sensorRouter.delete('/sensors/:id', (req, res) =>
+sensorRouter.delete('/:id', (req, res) =>
     res.json({ message: 'Handler pendiente' }),
 );
 

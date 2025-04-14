@@ -21,6 +21,6 @@ expressApp.get('/', async (req, res) => {
     }
 });*/
 
-expressApp.use('/', sensorRouter);
+expressApp.use('/sensors', sensorRouter);
 
 export default expressApp;

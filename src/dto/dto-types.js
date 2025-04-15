@@ -1,5 +1,11 @@
 import { Type } from '@sinclair/typebox';
 
+export const idSchema = Type.Number({
+    errorMessage: {
+        type: 'The data type must be a Number',
+    },
+});
+
 export const addressSchema = Type.String({
     minLength: 3,
     maxLength: 3,
@@ -48,3 +54,5 @@ export const setpointSchema = Type.Number({
         maximum: 'The setpoint cannot exceed 100.',
     },
 });
+
+export const addressPattern = /^(25[0-5]|2[0-4][0-9]|1[0-9]{2}|0[0-9]{2})$/;

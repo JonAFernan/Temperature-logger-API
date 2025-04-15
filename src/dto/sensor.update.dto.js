@@ -6,11 +6,13 @@ import {
     addressSchema,
     alarmRangeMaxSchema,
     alarmRangeMinSchema,
+    idSchema,
     nameSchema,
     setpointSchema,
 } from './dto-types.js';
 
 const addDTOSchema = Type.Object({
+    id: idSchema,
     address: addressSchema,
     name: nameSchema,
     alarm_range_min: alarmRangeMinSchema,
@@ -26,7 +28,7 @@ addErrors(ajv);
 
 const validateSchema = ajv.compile(addDTOSchema);
 
-const addSensorDTO = (req, res, next) => {
+const updateSensorDTO = (req, res, next) => {
     if (!validateSchema(req.body))
         return res.status(400).send({
             errors: validateSchema.errors.map((error) => error.message),
@@ -34,4 +36,4 @@ const addSensorDTO = (req, res, next) => {
     next();
 };
 
-export default addSensorDTO;
+export default updateSensorDTO;

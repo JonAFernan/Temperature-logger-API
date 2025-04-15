@@ -62,7 +62,9 @@ const addSensorDTO = (req, res, next) => {
     if (!validateSchema(req.body))
         return res
             .status(400)
-            .send(ajv.errorsText(validateSchema.errors, { separator: '\n' }));
+            .send({
+                errors: validateSchema.errors.map((error) => error.message),
+            });
     next();
 };
 

@@ -10,11 +10,7 @@ sensorRouter.get('/all', (req, res) =>
     res.json({ message: 'Handler pendiente' }),
 );
 sensorRouter.post('/add', addSensorDTO, (req, res) => res.send());
-sensorRouter.patch('/:id', (req, res) =>
-    res.json({ message: 'Handler pendiente' }),
-);
-sensorRouter.delete('/:id', (req, res) =>
-    res.json({ message: 'Handler pendiente' }),
-);
+sensorRouter.patch('/:id', (req, res) => res.send());
+sensorRouter.delete('/:id', (req, res) => res.send());
 
 export default sensorRouter;

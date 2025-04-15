@@ -1,18 +1,16 @@
 import { Router } from 'express';
 import addSensorDTO from '../dto/sensor.add.dto.js';
-import updateSensorDTO from '../dto/sensor.update.dto.js';
-import deleteSensorDTO from '../dto/sensor.delete.dto.js';
+//import updateSensorDTO from '../dto/sensor.update.dto.js';
+//import deleteSensorDTO from '../dto/sensor.delete.dto.js';
+import addSensorController from '../controllers/sensor-add-controller.js';
+import getAllSensorsControllers from '../controllers/sensor-get-all-controller.js';
 
 const sensorRouter = Router();
 
-sensorRouter.get('/:id', (req, res) =>
-    res.json({ message: 'Handler pendiente' }),
-);
-sensorRouter.get('/all', (req, res) =>
-    res.json({ message: 'Handler pendiente' }),
-);
-sensorRouter.post('/add', addSensorDTO, (req, res) => res.send());
-sensorRouter.patch('/:id', updateSensorDTO, (req, res) => res.send());
-sensorRouter.delete('/:id', deleteSensorDTO, (req, res) => res.send());
+sensorRouter.get('/all', getAllSensorsControllers);
+//sensorRouter.get('/:id', getSensorByIdControllers);
+sensorRouter.post('/add', addSensorDTO, addSensorController);
+//sensorRouter.patch('/:id', updateSensorDTO, updateSensorController);
+//sensorRouter.delete('/:id', deleteSensorDTO, deleteSensorController);
 
 export default sensorRouter;

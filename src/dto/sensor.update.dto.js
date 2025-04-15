@@ -11,14 +11,22 @@ import {
     setpointSchema,
 } from './dto-types.js';
 
-const addDTOSchema = Type.Object({
-    id: idSchema,
-    address: addressSchema,
-    name: nameSchema,
-    alarm_range_min: alarmRangeMinSchema,
-    alarm_range_max: alarmRangeMaxSchema,
-    setpoint: setpointSchema,
-});
+const addDTOSchema = Type.Object(
+    {
+        id: idSchema,
+        address: addressSchema,
+        name: nameSchema,
+        alarm_range_min: alarmRangeMinSchema,
+        alarm_range_max: alarmRangeMaxSchema,
+        setpoint: setpointSchema,
+    },
+    {
+        additionalProperties: false,
+        errorMessage: {
+            additionalProperties: 'The object format is not correct',
+        },
+    },
+);
 
 const ajv = new Ajv({ allErrors: true })
     .addKeyword('kind')

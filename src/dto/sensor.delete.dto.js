@@ -3,7 +3,15 @@ import Ajv from 'ajv';
 import addErrors from 'ajv-errors';
 import { idSchema } from './dto-types.js';
 
-const addDTOSchema = Type.Object({ id: idSchema });
+const addDTOSchema = Type.Object(
+    { id: idSchema },
+    {
+        additionalProperties: false,
+        errorMessage: {
+            additionalProperties: 'The object format is not correct',
+        },
+    },
+);
 
 const ajv = new Ajv({ allErrors: true })
     .addKeyword('kind')

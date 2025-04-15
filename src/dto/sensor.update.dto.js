@@ -13,7 +13,7 @@ import {
 
 const addDTOSchema = Type.Object(
     {
-        id: idSchema,
+        sensor_id: idSchema,
         address: addressSchema,
         name: nameSchema,
         alarm_range_min: alarmRangeMinSchema,

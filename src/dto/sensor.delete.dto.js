@@ -4,7 +4,7 @@ import addErrors from 'ajv-errors';
 import { idSchema } from './dto-types.js';
 
 const addDTOSchema = Type.Object(
-    { id: idSchema },
+    { sensor_id: idSchema },
     {
         additionalProperties: false,
         errorMessage: {

@@ -14,10 +14,7 @@ const getAllSensorsController = async (req, res) => {
 
     try {
         const [result] = await pool.query(query);
-        res.json({
-            message: 'Sensors with last record retrieved successfully',
-            data: result,
-        });
+        res.json(result);
     } catch (error) {
         console.error('Error executing query:', error);
         res.status(500).json({ error: 'Internal Server Error' });

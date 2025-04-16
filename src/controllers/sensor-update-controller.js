@@ -3,8 +3,8 @@ import checkSensorExists from './auxiliary-functions.js';
 
 const updateSensorController = async (req, res) => {
     const queryUpdate = ` UPDATE Sensors 
-                            SET address = ?, name = ?, alarm_range_min = ?, alarm_range_max = ?, setpoint = ?
-                        WHERE sensor_id = ?;
+            SET address = ?, name = ?, alarm_range_min = ?, alarm_range_max = ?, setpoint = ?
+            WHERE sensor_id = ?;
             `;
     const {
         sensor_id,
@@ -33,7 +33,7 @@ const updateSensorController = async (req, res) => {
 
         return res.status(201).json({ message: 'Sensor updated successfully' });
     } catch (error) {
-        console.error('Error registering sensor:', error);
+        console.error('Error updating sensor:', error);
         return res.status(500).json({ message: 'Internal Server Error' });
     }
 };

@@ -21,7 +21,7 @@ addErrors(ajv);
 
 const validateSchema = ajv.compile(addDTOSchema);
 
-const deleteSensorDTO = (req, res, next) => {
+const idSensorDTO = (req, res, next) => {
     if (!validateSchema(req.body))
         return res.status(400).send({
             errors: validateSchema.errors.map((error) => error.message),
@@ -29,4 +29,4 @@ const deleteSensorDTO = (req, res, next) => {
     next();
 };
 
-export default deleteSensorDTO;
+export default idSensorDTO;

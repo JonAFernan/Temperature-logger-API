@@ -12,10 +12,14 @@ export const checkSensorExists = async (sensor_id) => {
 };
 
 export const matchAddressWhithSensor = async (address) => {
-    const query = `SELECT id FROM sensors WHERE address = ? LIMIT 1`;
+    const query = `SELECT sensor_id FROM sensors WHERE address = ? LIMIT 1`;
     try {
         const [sensor] = await pool.query(query, [address]);
-        return sensor;
+        if (!sensor.length) {
+            console.warn(` Warning: No sensor found for address ${address}`);
+            return null;
+        }
+        return sensor[0].sensor_id;
     } catch (error) {
         console.error('Error matching the address with a sensor', error);
         throw new Error('Database error');

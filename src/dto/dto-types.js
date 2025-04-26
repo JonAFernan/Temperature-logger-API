@@ -55,4 +55,31 @@ export const setpointSchema = Type.Number({
     },
 });
 
+export const temperatureSchema = Type.Number({
+    minimum: -100,
+    maximum: 100,
+    errorMessage: {
+        type: 'The data type must be a Number',
+        minimum: 'The temperature must be at least -100.',
+        maximum: 'The temperature cannot exceed 100.',
+    },
+});
+
+export const timeStampSchema = Type.String({
+    format: 'date-time',
+    errorMessage: {
+        type: 'The data type must be a String',
+        format: 'The date must be in iso format',
+    },
+});
+
+export const arraySchema = (objectSchema) =>
+    Type.Array(objectSchema, {
+        minItems: 1,
+        errorMessage: {
+            type: 'The data type must be an array of objects',
+            minItems: 'At least one record is required',
+        },
+    });
+
 export const addressPattern = /^(25[0-5]|2[0-4][0-9]|1[0-9]{2}|0[0-9]{2})$/;

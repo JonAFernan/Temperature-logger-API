@@ -9,7 +9,7 @@ export const idSchema = Type.Number({
 export const addressSchema = Type.String({
     minLength: 3,
     maxLength: 3,
-    format: 'address', // Solo números entre 000 y 255
+    format: 'address',
     errorMessage: {
         type: 'The data type must be a string',
         format: 'The address must be between 000 and 255.',

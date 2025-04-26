@@ -1,5 +1,5 @@
 import pool from '../index.js';
-import checkSensorExists from './auxiliary-functions.js';
+import { checkSensorExists } from './auxiliary-functions.js';
 
 const updateSensorController = async (req, res) => {
     const queryUpdate = ` UPDATE sensors 

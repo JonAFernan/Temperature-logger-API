@@ -1,17 +1,24 @@
 import pool from '../index.js';
+import { matchAddressWhithSensor } from '../controllers/auxiliary-functions.js';
 
 const addRecordController = async (req, res) => {
-    const query = `INSERT INTO records (address, temperature, timestamp) VALUES (?, ?, ?);`;
+    const query = `INSERT INTO records (sensor_id, temperature, timestamp) VALUES (?, ?, ?);`;
 
     const records = req.body;
 
     try {
         for (const record of records) {
-            await pool.query(query, [
-                record.address,
-                record.temperature,
-                record.date,
-            ]);
+            const sensor_id = await matchAddressWhithSensor(record.address);
+            if (sensor_id) {
+                await pool.query(query, [
+                    sensor_id,
+                    record.temperature,
+                    record.date,
+                ]);
+            } else
+                console.warn(
+                    `Warning: No sensor found for address ${record.address}`,
+                );
         }
 
         return res

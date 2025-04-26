@@ -11,4 +11,13 @@ export const checkSensorExists = async (sensor_id) => {
     }
 };
 
-export default checkSensorExists;
+export const matchAddressWhithSensor = async (address) => {
+    const query = `SELECT id FROM sensors WHERE address = ? LIMIT 1`;
+    try {
+        const [sensor] = await pool.query(query, [address]);
+        return sensor;
+    } catch (error) {
+        console.error('Error matching the address with a sensor', error);
+        throw new Error('Database error');
+    }
+};

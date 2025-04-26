@@ -2,7 +2,7 @@ import pool from '../index.js';
 import checkSensorExists from './auxiliary-functions.js';
 
 const deleteSensorController = async (req, res) => {
-    const queryUpdate = ` DELETE FROM Sensors WHERE sensor_id = ?;`;
+    const queryUpdate = ` DELETE FROM sensors WHERE sensor_id = ?;`;
     const { sensor_id } = req.body;
 
     try {

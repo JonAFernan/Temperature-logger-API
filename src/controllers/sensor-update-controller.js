@@ -2,7 +2,7 @@ import pool from '../index.js';
 import checkSensorExists from './auxiliary-functions.js';
 
 const updateSensorController = async (req, res) => {
-    const queryUpdate = ` UPDATE Sensors 
+    const queryUpdate = ` UPDATE sensors 
             SET address = ?, name = ?, alarm_range_min = ?, alarm_range_max = ?, setpoint = ?
             WHERE sensor_id = ?;
             `;

@@ -1,7 +1,7 @@
 import pool from '../index.js';
 
 const addRecordController = async (req, res) => {
-    const query = `INSERT INTO temperature_records (address, temperature, timestamp) VALUES (?, ?, ?);`;
+    const query = `INSERT INTO records (address, temperature, timestamp) VALUES (?, ?, ?);`;
 
     const records = req.body;
 

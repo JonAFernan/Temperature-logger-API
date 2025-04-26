@@ -2,7 +2,7 @@ import pool from '../index.js';
 
 const addSensorController = async (req, res) => {
     const query = `
-            INSERT INTO Sensors (address, name, alarm_range_min, alarm_range_max, setpoint)
+            INSERT INTO sensors (address, name, alarm_range_min, alarm_range_max, setpoint)
             VALUES (?, ?, ?, ?, ?);
         `;
 

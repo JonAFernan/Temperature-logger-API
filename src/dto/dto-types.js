@@ -1,8 +1,10 @@
 import { Type } from '@sinclair/typebox';
 
-export const idSchema = Type.Number({
+export const idSchema = Type.Integer({
+    minimum: 0,
     errorMessage: {
-        type: 'The data type must be a Number',
+        type: 'The data type must be a Integer',
+        minimum: 'The minimum id is 0.',
     },
 });
 

@@ -14,10 +14,11 @@ const getSensorByIdController = async (req, res) => {
     WHERE s.sensor_id = ?;
 `;
 
-    const { sensor_id } = req.body;
+    const sensor_id = req.params;
 
     try {
-        const [result] = await pool.query(query, [sensor_id]);
+        const [result] = await pool.query(query, [sensor_id.id]);
+        console.log(sensor_id);
 
         if (result.length === 0) {
             return res

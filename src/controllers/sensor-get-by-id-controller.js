@@ -18,8 +18,6 @@ const getSensorByIdController = async (req, res) => {
 
     try {
         const [result] = await pool.query(query, [sensor_id.id]);
-        console.log(sensor_id);
-
         if (result.length === 0) {
             return res
                 .status(404)

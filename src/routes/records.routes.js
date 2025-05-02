@@ -7,6 +7,6 @@ import getRecordController from '../controllers/record-get-controller.js';
 const recordRouter = Router();
 
 recordRouter.post('/add', addRecordDTO, addRecordController);
-recordRouter.get('/find', getRecordDTO, getRecordController);
+recordRouter.post('/find', getRecordDTO, getRecordController);
 
 export default recordRouter;

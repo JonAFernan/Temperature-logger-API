@@ -6,6 +6,7 @@ import jsonErrorHandler from '../middleware/jsonError.handler.js';
 const expressApp = express();
 
 //Middleware
+
 expressApp.use((req, res, next) => {
     res.append('Access-Control-Allow-Origin', ['*']);
     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');

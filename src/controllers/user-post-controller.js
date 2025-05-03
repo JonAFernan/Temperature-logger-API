@@ -1,4 +1,6 @@
 import '../config/env.js';
+import { SignJWT } from 'jose';
+import { adminUser } from '../lib/user.js';
 const postUserController = async (req, res) => {
     const { user, password } = req.body;
 
@@ -10,7 +12,15 @@ const postUserController = async (req, res) => {
             message: 'Not correct credentials',
         });
 
-    return res.status(200).json({ messege: 'WELCOME' });
+    const encoder = new TextEncoder();
+    const jwtConstructor = new SignJWT({ role: adminUser.role });
+    const jwt = await jwtConstructor
+        .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
+        .setIssuedAt()
+        .setExpirationTime('1d')
+        .sign(encoder.encode(process.env.JWT_PRIVATE_KEY));
+
+    return res.status(201).json({ jwt });
 };
 
 export default postUserController;

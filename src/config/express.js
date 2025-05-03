@@ -2,6 +2,7 @@ import express from 'express';
 import sensorRouter from '../routes/sensors.routes.js';
 import recordRouter from '../routes/records.routes.js';
 import jsonErrorHandler from '../middleware/jsonError.handler.js';
+import userRouter from '../routes/user.routes.js';
 
 const expressApp = express();
 
@@ -19,5 +20,6 @@ expressApp.use(jsonErrorHandler);
 
 expressApp.use('/sensors', sensorRouter);
 expressApp.use('/records', recordRouter);
+expressApp.use('/user', userRouter);
 
 export default expressApp;

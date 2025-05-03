@@ -28,6 +28,16 @@ export const nameSchema = Type.String({
     },
 });
 
+export const userSchema = Type.String({
+    minLength: 2,
+    maxLength: 20,
+    errorMessage: {
+        type: 'The value type must be a string',
+        minLength: 'The value must be at least 2 characters long.',
+        maxLength: 'The value cannot exceed 50 characters.',
+    },
+});
+
 export const alarmRangeMinSchema = Type.Number({
     minimum: -100,
     maximum: 100,

@@ -15,6 +15,11 @@ const updateSensorController = async (req, res) => {
         setpoint,
     } = req.body;
 
+    const role = req.role;
+
+    if (role !== 'admin')
+        return res.status(401).json({ error: 'No authorized' });
+
     try {
         const checkId = await checkSensorExists(sensor_id);
         if (!checkId)

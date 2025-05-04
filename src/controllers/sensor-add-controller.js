@@ -9,6 +9,11 @@ const addSensorController = async (req, res) => {
     const { address, name, alarm_range_min, alarm_range_max, setpoint } =
         req.body;
 
+    const role = req.role;
+
+    if (role !== 'admin')
+        return res.status(401).json({ error: 'No authorized' });
+
     try {
         await pool.query(query, [
             address,

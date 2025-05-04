@@ -4,7 +4,10 @@ import { checkSensorExists } from './auxiliary-functions.js';
 const deleteSensorController = async (req, res) => {
     const queryUpdate = ` DELETE FROM sensors WHERE sensor_id = ?;`;
     const { sensor_id } = req.body;
+    const role = req.role;
 
+    if (role !== 'admin')
+        return res.status(401).json({ error: 'No authorized' });
     try {
         const checkId = await checkSensorExists(sensor_id);
         if (!checkId)

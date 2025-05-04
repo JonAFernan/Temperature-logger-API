@@ -17,7 +17,7 @@ const postUserController = async (req, res) => {
     const jwt = await jwtConstructor
         .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
         .setIssuedAt()
-        .setExpirationTime('1d')
+        .setExpirationTime('1h')
         .sign(encoder.encode(process.env.JWT_PRIVATE_KEY));
 
     return res.status(201).json({ jwt });
